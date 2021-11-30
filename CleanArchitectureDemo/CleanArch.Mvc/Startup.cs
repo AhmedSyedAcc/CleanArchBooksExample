@@ -1,4 +1,5 @@
 using CleanArch.Mvc.Data;
+using CLeanArch.Infra.data.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,6 +35,11 @@ namespace CleanArch.Mvc
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddDbContext<LibraryDbContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("LibraryConnection")));
+
             services.AddControllersWithViews();
         }
 
