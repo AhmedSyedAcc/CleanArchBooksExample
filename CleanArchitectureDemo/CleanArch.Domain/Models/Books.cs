@@ -30,5 +30,11 @@ namespace CleanArch.Domain.Models
         {
             return new Books(id, name, isbn, authorName);
         }
+        public void Edit(string name, string isbn, string authorName)
+        {
+            this.Name = name;
+            this.Isbn = isbn;
+            this.AuthorName = authorName;
+        }
     }
 }
