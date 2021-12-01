@@ -9,39 +9,39 @@ using System.Threading.Tasks;
 
 namespace CLeanArch.Infra.data.Repository
 {
-    public class BookRepository : IBookRepository
+    public class StudentReposiotry : IStudentRepository
     {
         private LibraryDbContext _ldc;
 
-        public BookRepository(LibraryDbContext ldc)
+        public StudentReposiotry(LibraryDbContext ldc)
         {
             _ldc = ldc;
         }
 
-        public void AddBook(Books book)
+        public void AddStudent(Student student)
         {
-            _ldc.Books.Add(book);
+            _ldc.Students.Add(student);
         }
 
         public void Delete(int id)
         {
-            Books book = _ldc.Books.Find(id);
-            _ldc.Books.Remove(book);
+            var student = _ldc.Students.Find(id);
+            _ldc.Students.Remove(student);
         }
 
-        public void Edit(Books book)
+        public void Edit(Student student)
         {
-            _ldc.Books.Update(book);
+            _ldc.Students.Update(student);
         }
 
-        public Books Get(int id)
+        public Student Get(int id)
         {
-            return _ldc.Books.Single(p => p.Id == id);
+            return _ldc.Students.Single(p => p.Id == id);
         }
 
-        public ICollection<Books> GetAll()
+        public ICollection<Student> GetAll()
         {
-            return _ldc.Books.ToList();
+            return _ldc.Students.ToList();
         }
 
         public void Save()

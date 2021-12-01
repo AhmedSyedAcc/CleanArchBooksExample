@@ -13,22 +13,25 @@ namespace CleanArch.Domain.Models
         public string Isbn { get; protected set; }
         public string AuthorName { get; protected set; }
 
+        public Student Student { get; set; }
+
         protected Books()
         {
 
         }
 
-        protected Books(int id, string name, string isbn, string authorName)
+        protected Books(int id, string name, string isbn, string authorName, Student student)
         {
             Id = id;
             Name = name;
             Isbn = isbn;
             AuthorName = authorName;
+            Student = student;
         }
 
-        public static Books Create(int id, string name, string isbn, string authorName)
+        public static Books Create(int id, string name, string isbn, string authorName, Student student)
         {
-            return new Books(id, name, isbn, authorName);
+            return new Books(id, name, isbn, authorName, student);
         }
         public void Edit(string name, string isbn, string authorName)
         {

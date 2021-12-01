@@ -15,5 +15,7 @@ namespace CLeanArch.Infra.data.Context
         }
 
         public DbSet<Books> Books { get; set; }
+
+        public DbSet<Student> Students { get; set; }
     }
 }

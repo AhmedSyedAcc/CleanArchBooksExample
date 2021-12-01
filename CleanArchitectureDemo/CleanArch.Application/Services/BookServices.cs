@@ -12,7 +12,7 @@ namespace CleanArch.Application.Services
 {
     public class BookServices : IBookServices
     {
-        public IBookRepository _bookRepository;
+        private IBookRepository _bookRepository;
 
         public BookServices(IBookRepository bookRepository)
         {
@@ -21,7 +21,7 @@ namespace CleanArch.Application.Services
 
         public void AddBook(AddBookDto dto)
         {
-            var book = Books.Create(dto.Id, dto.Name, dto.Isbn, dto.AuthorName);
+            var book = Books.Create(dto.Id, dto.Name, dto.Isbn, dto.AuthorName, dto.Student);
             _bookRepository.AddBook(book);
             _bookRepository.Save();
         }

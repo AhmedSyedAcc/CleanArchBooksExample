@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace CleanArch.Application.Dtos
 {
-    public class AddBookDto
+    public class EditStudentDto
     {
-        public int Id { get; set; }
         public string Name { get; set; }
-        public string Isbn { get; set; }
-        public string AuthorName { get; set; }
-        public Student Student { get; set; }
+        public int Age { get; set; }
+        public ICollection<Books> Books { get; set; }
     }
 }
+ 
